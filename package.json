@@ -2,6 +2,12 @@
   "name": "appium_js_tests",
   "description": "JS Mentortools Login test implementation",
   "type": "module",
+  "scripts": {
+    "clean": "rm -rf ./mochawesome-report/* ./screenshots/*",
+    "test": "npx wdio run wdio.conf.js",
+    "report": "npx mochawesome-merge ./mochawesome-report/*.json > ./mochawesome-report/mochawesome.json && npx marge ./mochawesome-report/mochawesome.json --reportDir mochawesome-report --reportFilename report.html",
+    "test:report": "npm run clean && npm run test; npm run report"
+  },
   "devDependencies": {
     "@wdio/cli": "^9.18.4",
     "@wdio/local-runner": "^9.18.4",
