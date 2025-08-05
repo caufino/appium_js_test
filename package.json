@@ -3,7 +3,7 @@
   "description": "JS Mentortools Login test implementation",
   "type": "module",
   "scripts": {
-    "clean": "rm -rf ./mochawesome-report/* ./screenshots/*",
+    "clean": "rm -rf ./mochawesome-report/ ./screenshots/ ./videos/",
     "test": "npx wdio run wdio.conf.js",
     "report": "npx mochawesome-merge ./mochawesome-report/*.json > ./mochawesome-report/mochawesome.json && npx marge ./mochawesome-report/mochawesome.json --reportDir mochawesome-report --reportFilename report.html",
     "test:report": "npm run clean && npm run test; npm run report"
@@ -16,6 +16,7 @@
     "appium": "^2.19.0",
     "mochawesome-merge": "^5.0.0",
     "wdio-mochawesome-reporter": "^7.0.0",
+    "wdio-video-reporter": "^6.1.1",
     "webdriverio": "^9.18.4"
   }
 }

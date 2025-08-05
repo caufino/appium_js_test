@@ -23,6 +23,11 @@ export const config = {
     retries: 2
   },
   reporters: [
+    'spec',
+    ['video', {
+      saveAllVideos: false,
+      outputDir: './videos'
+    }],
     ['mochawesome',
       {
         outputDir: './mochawesome-report',
@@ -33,9 +38,9 @@ export const config = {
           reportDir: './mochawesome-report',
           reportFilename: 'report',
           quiet: true,
-          overwrite: false,
+          overwrite: true,
           html: true,
-          json: true,
+          json: false,
           inlineAssets: true,
         }
       }
