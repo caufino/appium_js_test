@@ -65,16 +65,16 @@ It expects two environment variables as CMD inputs:
  -  TEST_EMAIL
  -  TEST_PASSWORD
 
-to test actual login into the app, so don't forget to pass working account, otherwise tests will fail!
+to test actual login into the app, so don't forget to pass working account, otherwise tests won't check actual login!
 
 ### What do the tests actually test?
 This is a simple example of Login automation.
 
 App is opened inside emulator and 4 different scenarios are checked:
 - Try to login with both wrong email and password
+- Try to login with both correct email and password
 - Try to login with correct email but wrong password
 - Try to login with wrong email but correct password
-- Try to login with both correct email and password
 
 For each test depending if Login fails or passes tests checks for desired output:
 - If login fails, we check for error message
