@@ -1,25 +1,20 @@
-import { getElement } from "../utils/elementUtils";
+import { getElement, areElementsDisplayed } from "../utils/elementUtils";
 
 class DashboardPage {
-  dashboardLocators = [
-      'android=new UiSelector().text("You haven’t started any courses yet.")',
-      '~My courses', // ACCESSIBILITY_ID locators
-      '~Paid',
-      '~Free'
-    ];
+  dashboardIdentifiers = [
+    { findBy: "text", value: "You haven’t started any courses yet."},
+    { findBy: "text", value: "My courses"},
+    { findBy: "text", value: "Paid"},
+    { findBy: "text", value: "Free"}
+  ];
 
   async isDashboardLoaded() {
     // Wait for last element on the page to be loaded
-    const firstOption = await getElement(this.dashboardLocators[0]);
-    await firstOption.waitForDisplayed({ timeout: 5000 });
+    const first = await getElement(this.dashboardIdentifiers[0].findBy, this.dashboardIdentifiers[0].value);
+    await first.waitForDisplayed({ timeout: 5000 });
 
     // Check if all other dashboard elements were properly loaded
-    for (const locator of this.dashboardLocators) {
-      const element = await getElement(locator);
-      if (!(await element.isDisplayed())) {
-        throw new Error('User dashboard was not loaded (or failed to load in time)! Login failed!');
-      }
-    }
+    await areElementsDisplayed(this.dashboardIdentifiers);
   }
 }
 
