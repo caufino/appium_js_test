@@ -58,14 +58,19 @@ appium
 
 After setting & starting everything up, tests can be run from home directory via CMD:
 ```
-TEST_EMAIL=<email_account> TEST_PASSWORD=<email_password> npx wdio run wdio.conf.js
+TEST_EMAIL=<email_account> TEST_PASSWORD=<email_password> npm run test:report
 ```
 
 It expects two environment variables as CMD inputs:
  -  TEST_EMAIL
  -  TEST_PASSWORD
 
-to test actual login into the app, so don't forget to pass working account, otherwise tests won't check actual login!
+to test actual login into the app, so don't forget to pass working account, **otherwise tests won't check actual login!**
+
+This option also generates screenshot, videos and test output in their respected folders:
+- screenshots/
+- videos/
+- mochawesome-report/report.html
 
 ### What do the tests actually test?
 This is a simple example of Login automation.
